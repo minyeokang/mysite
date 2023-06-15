@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, {
   useEffect,
@@ -36,7 +37,7 @@ function getRandomPosition(wrapperWidth, wrapperHeight, size) {
 }
 
 //component
-const Selfaware = () => {
+const Selfaware = (props) => {
   //variables
   const [boxPositions, setBoxPositions] = useState([]);
   const wrapper = useRef(null);
@@ -144,7 +145,19 @@ const Selfaware = () => {
     [randomlyPosition, makeCircle, changeColor]
   );
 
-  //initiate when loaded
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     props.setShowMotion(true);
+  //   }, 1500);
+
+  //   return () => {
+  //     clearTimeout(timeout);
+  //   };
+  //   // Trigger the state update via the setShowMotion prop
+  
+  // }, [props, props.setShowMotion]);
+
+
   useEffect(() => {
     setNewWrapWidth(wrapper.current.clientWidth);
     setNewWrapHeight(wrapper.current.clientHeight);
