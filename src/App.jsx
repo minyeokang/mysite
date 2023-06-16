@@ -1,62 +1,39 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
 import Selfaware from "./components/Selfaware";
-import Motion from "./components/Motion";
 import { gsap } from "gsap";
+import "./App.css";
+
 function App() {
   const [count, setCount] = useState(0);
   const [showMotion, setShowMotion] = useState(false);
-  const motionRef = useRef(null);
+  const overlayRef = useRef(null);
   const textRef = useRef(null);
-  const moneyRef = useRef(null);
-
+  const motionRef = useRef(null);
 
   useEffect(() => {
-    const container = motionRef.current;
+    const overlay = overlayRef.current;
     const text = textRef.current;
-    const clone = moneyRef.current;
+    const motion = motionRef.current;
+    const bottom = motion.getBoundingClientRect().bottom;
+
     let tl = gsap.timeline();
 
-    tl.set(clone, {
+    tl.set(motion, {
       autoAlpha: 0,
     });
 
-
-    const bottom = clone.getBoundingClientRect().bottom
-
     if (showMotion) {
-      tl.to(text, {
-        autoAlpha: 0,
-      });
-      tl.addLabel('text')
-      tl.to(container, {
-        clipPath: `inset(100rem 20rem ${bottom}rem 20rem)`,
-        // borderRadius: '20px',
-        scale: 1,
-        ease: "power3",
-      },'text-=0.2');
-
-      tl.addLabel('done')
-
-      tl.to(container, {
-        autoAlpha: 0,
-        ease: "power3",
-      },"'done-=0.3"
-      );
-
-         tl.to(
-        clone,
-        {
-          autoAlpha: 1,
-        },'done-=0.8'
-      );
-
+      tl.to(text, { autoAlpha: 0 })
+      .addLabel('text')
+      .to(overlay, { clipPath: `inset(100rem 20rem ${bottom}rem 20rem)`, scale: 1, ease: "power3", },'text-=0.2')
+      .addLabel('done')
+      .to(overlay, { autoAlpha: 0, ease: "power3", },"'done-=0.3" )
+      .to(motion, { autoAlpha: 1, },'done-=0.8' );
     }
   }, [showMotion]);
 
+  
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowMotion(true);
@@ -66,11 +43,12 @@ function App() {
       clearTimeout(timeout);
     };
   }, []);
+
   return (
     <>
       <div className="super-container">
         <div className="wrap">
-          <div ref={moneyRef}>
+          <div ref={motionRef}>
             {showMotion && <Selfaware />}
           </div>
 
@@ -88,7 +66,7 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="overlay" ref={motionRef}>
+      <div className="overlay" ref={overlayRef}>
         <div className="overlay-inner">
           <div className="text" ref={textRef}>
             selfware
@@ -97,8 +75,6 @@ function App() {
       </div>
     </>
 
-
-    //shake를 gsap skewX, Y로 처리해서 자연스럽게 처리
   );
 }
 
