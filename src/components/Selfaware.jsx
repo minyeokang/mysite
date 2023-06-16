@@ -1,33 +1,23 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-  useMemo,
-  useLayoutEffect,
-} from "react";
+import React, { useEffect, useState, useRef, useCallback, useMemo, } from "react";
 import { gsap } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
 
 gsap.registerPlugin(CSSPlugin);
-//fomulas
+
 function getRandomPosition(wrapperWidth, wrapperHeight, size) {
   //calculating columns and rows
   const numColumns = Math.floor(wrapperWidth / size);
   const numRows = Math.floor(wrapperHeight / size);
   const numBoxes = numColumns * numRows;
-//   console.log(wrapperWidth)
-//   console.log(size)
-// console.log(numColumns)
-// console.log(numRows)
-// console.log(numBoxes)
+
   const positions = new Set();
   const getRandomCoordinate = (max) => Math.floor(Math.random() * max) * size;
   const remainingSpace = wrapperHeight - numRows * size;
   const remainingSpaceX = wrapperWidth - numColumns * size;
   console.log(remainingSpaceX)
+
   //generate random position within the wrapper
   while (positions.size < numBoxes) {
     const left = getRandomCoordinate(numColumns);
@@ -41,44 +31,35 @@ function getRandomPosition(wrapperWidth, wrapperHeight, size) {
   //convert position to an array of object
   return Array.from(positions).map((position) => {
     const [left, top] = position.split(",");
-
     return { left: parseInt(left), top: parseInt(top) };
   });
 }
 
-//component
 const Selfaware = (props) => {
   //variables
   const [boxPositions, setBoxPositions] = useState([]);
-  const [refState, setRefState] = useState(0);
-  const wrapper = useRef(null);
-  const cloneRef = useRef(null);
-  const circleRef = useRef(null);
   const [newWrapWidth, setNewWrapWidth] = useState(0);
   const [newWrapHeight, setNewWrapHeight] = useState(0);
+  const [cloneWidth, setCloneWidth] = useState(140);
   const [showCircle, setShowCircle] = useState(false);
   const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
   const [textColor, setTextColor] = useState("");
   const [bgColor, setBgColor] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const wrapper = useRef(null);
+  const cloneRef = useRef(null);
+  const circleRef = useRef(null);
+
   const letters = useMemo(() => ["F", "R", "O", "N", "T", "E", "N", "D"], []);
-  const colorArray = useMemo(
-    () => [
-      { background: "#019563", color: "#F7D9D3" },
-      { background: "#f3be22", color: "#5267AB" },
-      { background: "#5267AB", color: "#F7D9D3" },
-      { background: "#ee4e2b", color: "#f3be22" },
-    ],
-    []
-  );
-  const [cloneWidth, setCloneWidth] = useState(140)
+  const colorArray = useMemo( () => [ { background: "#019563", color: "#F7D9D3" }, { background: "#f3be22", color: "#5267AB" }, { background: "#5267AB", color: "#F7D9D3" }, { background: "#ee4e2b", color: "#f3be22" }, ], [] );
   const viewportWidth = window.innerWidth; 
 
   const randomlyPosition = useCallback(() => {
-    //generate random position
     if(viewportWidth <= 540){
       setCloneWidth(100)
     }
+
     const positions = getRandomPosition(newWrapWidth, newWrapHeight, cloneWidth);
     const slicedPositions = positions
     .slice(0, letters.length)
@@ -90,7 +71,6 @@ const Selfaware = (props) => {
 
   setBoxPositions(slicedPositions);
    
-    
   }, [viewportWidth, newWrapWidth, newWrapHeight, cloneWidth, letters.length]);
 
   const makeCircle = useCallback((event) => {
@@ -152,7 +132,6 @@ const Selfaware = (props) => {
       let clickedElement = event.target; // span would be event target.
       while (clickedElement !== null) {
         if (clickedElement.classList.contains("shake")) {
-          //trigger actions on click
           randomlyPosition();
           makeCircle(event);
           changeColor();
@@ -167,6 +146,7 @@ const Selfaware = (props) => {
   useEffect(() => {
     setNewWrapWidth(wrapper.current.clientWidth);
     setNewWrapHeight(wrapper.current.clientHeight);
+
     //intro motion
     const defaultPositions = [];
     const centerX = newWrapWidth / 2 - 65;
@@ -208,7 +188,6 @@ const Selfaware = (props) => {
             left: position.left,
             top: position.top,
             "--red": textColor,
-            
             opacity: position.opacity,
           }}
           ref={cloneRef}
@@ -216,7 +195,6 @@ const Selfaware = (props) => {
           <span style={{transform: `rotate(${position.rotation}deg)`,}}>{letters[index]}</span>
         </div>
       ))}{" "}
-      {/* .clone */}
       {showCircle && (
         <div
           className="circle"
@@ -228,8 +206,7 @@ const Selfaware = (props) => {
           ref={circleRef}
         />
       )}{" "}
-      {/* .circle */}
-    </div> /* .wrapper */
+    </div> 
   );
 };
 
