@@ -12,6 +12,8 @@ function App() {
   const motionRef = useRef(null);
   const textRef = useRef(null);
   const moneyRef = useRef(null);
+
+
   useEffect(() => {
     const container = motionRef.current;
     const text = textRef.current;
@@ -22,38 +24,36 @@ function App() {
       autoAlpha: 0,
     });
 
+
+    const bottom = clone.getBoundingClientRect().bottom
+
     if (showMotion) {
       tl.to(text, {
         autoAlpha: 0,
-        onComplete: ()=>{
-       
-        }
       });
       tl.addLabel('text')
       tl.to(container, {
-        clipPath: "inset(100rem 10% 50% 10%)",
+        clipPath: `inset(100rem 20rem ${bottom}rem 20rem)`,
+        // borderRadius: '20px',
+        scale: 1,
         ease: "power3",
       },'text-=0.2');
 
-
-
       tl.addLabel('done')
+
+      tl.to(container, {
+        autoAlpha: 0,
+        ease: "power3",
+      },"'done-=0.3"
+      );
+
          tl.to(
         clone,
         {
           autoAlpha: 1,
         },'done-=0.8'
       );
-      ///////////////////////////먼가안맞음~
-      // tl.to(container, {
-      //   autoAlpha: 0,
-      //   ease: "power3",
-      // },"-=0.7"
-      // );
 
-   
-  
-    
     }
   }, [showMotion]);
 
@@ -71,11 +71,8 @@ function App() {
       <div className="super-container">
         <div className="wrap">
           <div ref={moneyRef}>
-            {showMotion && <Selfaware setShowMotion={setShowMotion} />}
+            {showMotion && <Selfaware setShowMotion={setShowMotion}/>}
           </div>
-
-          {/* <Selfaware setShowMotion={setShowMotion}  />  */}
-          {/* <Motion /> */}
 
           <h1>Vite + React</h1>
           <div className="card">
@@ -99,7 +96,7 @@ function App() {
         </div>
       </div>
     </>
-    //showMotion이 트루면 overlay가 clip-path되고나서 opacity:0; visibility:hidden; 되게 처리해서 full div에서 작아진거처럼 처리
+
 
     //shake를 gsap skewX, Y로 처리해서 자연스럽게 처리
   );
