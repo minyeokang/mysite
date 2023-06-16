@@ -3,54 +3,44 @@ import { useEffect, useRef, useState } from "react";
 import Selfaware from "./components/Selfaware";
 import { gsap } from "gsap";
 import "./App.css";
-
+import { motion, useAnimate, stagger } from "framer-motion";
 function App() {
   const [count, setCount] = useState(0);
-  const [showMotion, setShowMotion] = useState(false);
   const overlayRef = useRef(null);
   const textRef = useRef(null);
   const motionRef = useRef(null);
 
+  const [scope, animate] = useAnimate();
   useEffect(() => {
     const overlay = overlayRef.current;
     const text = textRef.current;
-    const motion = motionRef.current;
-    const bottom = motion.getBoundingClientRect().bottom;
+    const motionElement = motionRef.current;
+    const bottom = motionElement.getBoundingClientRect().bottom;
+    const left = motionElement.getBoundingClientRect().left;
+    const sequence = [
+      [text, { opacity: 0  }, { at: 0.5, }],
+      [overlay, { clipPath: `inset(100rem ${left}rem ${bottom}rem ${left}rem)`  }, { at: 0.8, duration: 1}],
+      [overlay, { opacity: 0 }, { at: 1.7 }]
+    ];
 
-    let tl = gsap.timeline();
+    animate(sequence, { duration:1 });
 
-    tl.set(motion, {
-      autoAlpha: 0,
-    });
-
-    if (showMotion) {
-      tl.to(text, { autoAlpha: 0 })
-      .addLabel('text')
-      .to(overlay, { clipPath: `inset(100rem 20rem ${bottom}rem 20rem)`, scale: 1, ease: "power3", },'text-=0.2')
-      .addLabel('done')
-      .to(overlay, { autoAlpha: 0, ease: "power3", },"'done-=0.3" )
-      .to(motion, { autoAlpha: 1, },'done-=0.8' );
-    }
-  }, [showMotion]);
-
-  
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShowMotion(true);
-    }, 1500);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
+  });
 
   return (
     <>
       <div className="super-container">
         <div className="wrap">
-          <div ref={motionRef}>
-            {showMotion && <Selfaware />}
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+            }}
+            transition={{ duration: 1 }}>
+            <div ref={motionRef}>
+              <Selfaware />
+            </div>
+          </motion.div>
 
           <h1>Vite + React</h1>
           <div className="card">
@@ -66,15 +56,16 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="overlay" ref={overlayRef}>
-        <div className="overlay-inner">
-          <div className="text" ref={textRef}>
-            selfware
+      <div ref={scope}>
+        <div className="overlay" ref={overlayRef}>
+          <div className="overlay-inner">
+            <div className="text" ref={textRef}>
+              selfware
+            </div>
           </div>
         </div>
       </div>
     </>
-
   );
 }
 
