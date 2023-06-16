@@ -6,7 +6,7 @@ import { CSSPlugin } from "gsap/CSSPlugin";
 
 gsap.registerPlugin(CSSPlugin);
 
-function getRandomPosition(wrapperWidth, wrapperHeight, size) {
+const getRandomPosition = (wrapperWidth, wrapperHeight, size) => {
   //calculating columns and rows
   const numColumns = Math.floor(wrapperWidth / size);
   const numRows = Math.floor(wrapperHeight / size);
@@ -16,13 +16,11 @@ function getRandomPosition(wrapperWidth, wrapperHeight, size) {
   const getRandomCoordinate = (max) => Math.floor(Math.random() * max) * size;
   const remainingSpace = wrapperHeight - numRows * size;
   const remainingSpaceX = wrapperWidth - numColumns * size;
-  console.log(remainingSpaceX)
 
   //generate random position within the wrapper
   while (positions.size < numBoxes) {
     const left = getRandomCoordinate(numColumns);
     const top = getRandomCoordinate(numRows);
-    console.log(left)
     const adjustedTop = remainingSpace > 0 ? top + remainingSpace : top;
     const adjustedLeft = remainingSpaceX > 0 ? left + remainingSpaceX : left;
     positions.add(`${adjustedLeft},${adjustedTop}`);
@@ -35,30 +33,29 @@ function getRandomPosition(wrapperWidth, wrapperHeight, size) {
   });
 }
 
-const Selfaware = (props) => {
+const letters = ["F", "R", "O", "N", "T", "E", "N", "D"];
+const colorArray =  [ { background: "#019563", color: "#F7D9D3" }, { background: "#f3be22", color: "#5267AB" }, { background: "#5267AB", color: "#F7D9D3" }, { background: "#ee4e2b", color: "#f3be22" }, ];
+
+const Selfaware = () => {
   //variables
+  const wrapper = useRef(null);
+  const cloneRef = useRef(null);
+  const circleRef = useRef(null);
+
   const [boxPositions, setBoxPositions] = useState([]);
   const [newWrapWidth, setNewWrapWidth] = useState(0);
   const [newWrapHeight, setNewWrapHeight] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [cloneWidth, setCloneWidth] = useState(140);
   const [showCircle, setShowCircle] = useState(false);
   const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
   const [textColor, setTextColor] = useState("");
   const [bgColor, setBgColor] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const wrapper = useRef(null);
-  const cloneRef = useRef(null);
-  const circleRef = useRef(null);
-
-  const letters = useMemo(() => ["F", "R", "O", "N", "T", "E", "N", "D"], []);
-  const colorArray = useMemo( () => [ { background: "#019563", color: "#F7D9D3" }, { background: "#f3be22", color: "#5267AB" }, { background: "#5267AB", color: "#F7D9D3" }, { background: "#ee4e2b", color: "#f3be22" }, ], [] );
-  const viewportWidth = window.innerWidth; 
 
   const randomlyPosition = useCallback(() => {
-    if(viewportWidth <= 540){
-      setCloneWidth(100)
-    }
+    const viewportWidth = window.innerWidth; 
+
+    if(viewportWidth <= 540){ setCloneWidth(100) }
 
     const positions = getRandomPosition(newWrapWidth, newWrapHeight, cloneWidth);
     const slicedPositions = positions
@@ -71,7 +68,7 @@ const Selfaware = (props) => {
 
   setBoxPositions(slicedPositions);
    
-  }, [viewportWidth, newWrapWidth, newWrapHeight, cloneWidth, letters.length]);
+  }, [newWrapWidth, newWrapHeight, cloneWidth]);
 
   const makeCircle = useCallback((event) => {
     //calculating position of clicked circle
@@ -124,7 +121,7 @@ const Selfaware = (props) => {
 
       return newIndex;
     });
-  }, [colorArray, letters]);
+  }, []);
 
   const handleClick = useCallback(
     (event) => {
@@ -172,7 +169,7 @@ const Selfaware = (props) => {
       clearTimeout(randomizeTimeout);
     };
     
-  }, [letters.length, newWrapHeight, newWrapWidth, randomlyPosition]);
+  }, [newWrapHeight, newWrapWidth, randomlyPosition]);
 
   useEffect(() => {
     spread();

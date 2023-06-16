@@ -71,7 +71,7 @@ function App() {
       <div className="super-container">
         <div className="wrap">
           <div ref={moneyRef}>
-            {showMotion && <Selfaware setShowMotion={setShowMotion}/>}
+            {showMotion && <Selfaware />}
           </div>
 
           <h1>Vite + React</h1>
