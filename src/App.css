@@ -1,12 +1,19 @@
 @font-face { font-family: clearface; src: url('assets/Clearface.ttf') format('truetype'); } 
 @font-face { font-family: adieu; src: url('assets/Adieu-Light.ttf') format('truetype'); } 
 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; line-height: 1; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+html { font-size: 6.25%; } body { font-size: 16rem; line-height: 1; }
+ol, ul { list-style: none; }
+a { text-decoration: none; color: inherit; }
+button { background: transparent; border: 0; cursor: pointer; }
+
 :root { --pink: #F7D9D3; --blue: #5267AB; --yellow: #f3be22; --red: #ee4e2b; --green: #019563; --bg:''; } 
-html { font-size: 6.25%; } 
-body { margin: 0; padding: 0; box-sizing: border-box; overflow-x: hidden; } 
+body { margin: 0; padding: 0; box-sizing: border-box; overflow-x: hidden; font-family: adieu, sans-serif;} 
 #root { width: 100vw; height: 100vh; } 
 .super-container { padding: 0 20rem; } 
 .wrap { width: 100%; margin: 0 auto; padding: 100rem 0; } 
+
 .wrapper { background: var(--pink); height: 380rem; border-radius: 20px; overflow: hidden; position: relative; padding: 20rem; z-index: 66; } 
 .clone { --color:''; width: 100rem; height: 100rem; border-radius: 50%; position: absolute; z-index: 1; cursor: pointer; text-align: center; font-size: 100rem; color: var(--red); transition: all .5s; will-change: transform; } 
 .clone span { display: inline-block; } 
@@ -14,7 +21,6 @@ body { margin: 0; padding: 0; box-sizing: border-box; overflow-x: hidden; }
 .overlay { position: fixed; width: 100%; height: 100%; background: var(--pink); left: 0; top: 0; overflow: hidden; } 
 .overlay-inner { width: 100vw; height: 100%; display: flex; justify-content: center; align-items: center;   } 
 .overlay-inner div { font-size: 80rem; } 
-
 
 .shake { animation: shake 0.2s ease-in-out infinite alternate; } 
  
@@ -33,3 +39,4 @@ body { margin: 0; padding: 0; box-sizing: border-box; overflow-x: hidden; }
  @media (max-width: 460px) { 
  .clone { width: 30rem; height: 30rem; } 
  } 
+
