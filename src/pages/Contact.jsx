@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import profile from "../assets/test2.jpg";
+
 const ContactContainer = styled.div`
   width: 100vw;
   height: 100vh;
@@ -13,6 +15,9 @@ const ContactContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     padding: 0 50rem;
   }
+  img {
+    width: 200rem;
+  }
 `;
 
 const Contact = () => {
@@ -26,9 +31,18 @@ const Contact = () => {
               </div>
 
               <div className="right">
-                <img src="" alt="" />
+                <img src={profile} alt="" />
                 <p>minyeokang</p>
+<p>clip img with cute shape haha</p>
                 <p>currently working at studio JT</p>
+                <p>what i did for this company? a tag </p>
+                <p>schema markup posting 
+                  albert motion 
+                  maintanence webstie 
+                  some creation 
+                what i learn and stuff 
+                be very detail. 
+                </p>
                 <p>github, email,</p>
                 <p>code by minyeo</p>
                 <p>most of the layout is inspired from selfaware.com </p>
