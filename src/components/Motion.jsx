@@ -162,8 +162,8 @@ const Motion = () => {
 
     //intro motion
     const defaultPositions = [];
-    const centerX = newWrapWidth / - svgWidth / 2;
-    const centerY = newWrapHeight / - svgWidth / 2;
+    const centerX = newWrapWidth / 2 - svgWidth / 2;
+    const centerY = newWrapHeight / 2 - svgWidth / 2;
     for (let i = 0; i < letters.length; i++) {
       const defaultPosition = {
         left: centerX, 
@@ -177,12 +177,12 @@ const Motion = () => {
     setBoxPositions(defaultPositions);
 
     //need delay of one second
-    const randomizeTimeout = setTimeout(() => {
+    const randomizeTimeout = gsap.delayedCall(3, () => {
       randomlyPosition();
-    }, 1000); 
+    });
 
     return () => {
-      clearTimeout(randomizeTimeout);
+      randomizeTimeout.kill(); 
     };
     
   }, [newWrapHeight, newWrapWidth, randomlyPosition, svgWidth]);
@@ -205,6 +205,19 @@ const Motion = () => {
       setSvgWidth('140');
     }
   }, [isMedium, isMobile, isTablet]);
+
+  const handleResize = () => {
+    const vh = window.innerHeight * 0.01;
+    wrapper.current.style.setProperty("--vh", `${vh}px`); 
+  };
+  
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+  
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="wrapper" ref={wrapper}>
       {boxPositions.map((position, index) => (
