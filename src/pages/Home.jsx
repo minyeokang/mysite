@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { motion, useAnimate } from "framer-motion";
 import Motion from "../components/Motion";
 import splitType from "https://cdn.skypack.dev/split-type@0.3.3";
+import Header from "../components/Header";
 const Home = () => {
   const overlayRef = useRef(null);
   const textRef = useRef(null);
@@ -49,7 +50,7 @@ const Home = () => {
   });
   return (
     <>
-    
+    <Header />
     <div className="super-container">
     <div className="wrap">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}>

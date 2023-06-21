@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Header from "../components/Header";
 import List from "../components/List";
 
 const ListContainer = styled.div``;
@@ -9,6 +10,7 @@ const ListHeader = styled.div`
 const Projects = () => {
   return (
     <>
+    <Header />
       <div className="super-container">
         <div className="wrap">
           <ListContainer>
