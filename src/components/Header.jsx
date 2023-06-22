@@ -2,17 +2,17 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Gnb = styled.header`
-  padding: 0 20rem;
+  padding: 0 20px;
   display: flex; 
   justify-content: space-between;
   align-items: center;
   ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 20rem;
+    column-gap: 20px;
   } 
   a {
-    padding: 12rem 0;
+    padding: 12px 0;
   }
 `;
 const Header = () => {

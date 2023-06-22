@@ -14,10 +14,10 @@ const ContactContainer = styled.div`
   .make{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0 50rem;
+    padding: 0 50px;
   }
   img {
-    width: 200rem;
+    width: 200px;
   }
 `;
 

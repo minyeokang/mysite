@@ -4,7 +4,7 @@ import List from "../components/List";
 
 const ListContainer = styled.div``;
 const ListHeader = styled.div`
-  margin-bottom: 100rem;
+  margin-bottom: 100px;
 `;
 
 const Projects = () => {

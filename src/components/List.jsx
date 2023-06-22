@@ -9,8 +9,8 @@ const ListContents = styled.div`
     li {
       position: relative;
       cursor: pointer;
-      padding: 10rem 0;
-      border-bottom: 1rem solid #999;
+      padding: 10px 0;
+      border-bottom: 1px solid #999;
     }
   }
 
@@ -21,7 +21,7 @@ const ListContents = styled.div`
   }
   
   .content > div {
-    padding: 10rem 0;
+    padding: 10px 0;
   }
 
   .icon-wrap {
@@ -29,8 +29,8 @@ const ListContents = styled.div`
     align-items: center;
 
     div {
-      width: 20rem;
-      height: 20rem;
+      width: 20px;
+      height: 20px;
     }
   }
 
@@ -87,7 +87,7 @@ const List = () => {
     }
 
     thumb.style.opacity = "0";
-    listItem.removeEventListener("mousemove", handleMouseMove);
+    listItem.pxoveEventListener("mousemove", handleMouseMove);
   };
 
   const handleMouseEnter = (e) => {

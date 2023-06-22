@@ -23,7 +23,7 @@ const Home = () => {
     const top = motionElement.getBoundingClientRect().top + 20;
 
     const sequence = [
-      [overlay, { clipPath: `inset(${top}rem ${left}rem ${bottom}rem ${left}rem)`  }, { at: 0.8}],
+      [overlay, { clipPath: `inset(${top}px ${left}px ${bottom}px ${left}px)`  }, { at: 0.8}],
       [motionElement, { opacity: 1,  visibility: 'visible' }, { at: 0.7 }],
       [overlay, { opacity: 0 }, { at: 2 }],
     ];
