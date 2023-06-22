@@ -8,9 +8,8 @@ const ContactContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position:fixed; 
-  top: 0;
-  left: 0;
+ 
+
   .make{
     display: grid;
     grid-template-columns: 1fr 1fr;
