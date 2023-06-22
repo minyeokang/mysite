@@ -22,7 +22,7 @@ body { margin: 0; padding: 0; box-sizing: border-box; overflow: hidden; font-fam
 .circle { position: absolute; background-color: var(--bg);  border-radius: 9999px; } 
 .overlay { position: fixed; width: 100%; height: 100%; background: var(--pink); left: 0; top: 0; overflow: hidden; z-index: -1;} 
 .overlay-inner { width: 100vw; height: 100%; display: flex; justify-content: center; align-items: center;   } 
-.overlay-inner div { font-size: 80px; } 
+.overlay-inner div { font-size: 80px; color: var(--red); } 
 
 svg path { fill: var(--red);}
 .shake { animation: shake 0.2s ease-in-out infinite alternate; } 
@@ -37,7 +37,7 @@ svg path { fill: var(--red);}
   }
 
   @media(max-width: 540px){
-    .super-container {
-        padding: 0 2px; 
+    .overlay-inner div{
+        font-size: 40px;
     }
   }
