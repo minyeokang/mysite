@@ -3,33 +3,25 @@ import List from "../components/List";
 
 const ListContainer = styled.div`
   overflow: hidden;
+  background: var(--baige);
+  height: 100%;
+  padding: 0 20px;
 `;
 const ListHeader = styled.div`
-  margin-bottom: 100px;
-  @media(max-width:768px){
-    margin-bottom: 50px;
-  }
+  margin: 90px 0 50px;
+  p.recoleta{color:var(--newBlue);}
 `;
 
 const Projects = () => {
   return (
     <>
-      <div className="super-container">
-        <div className="wrap">
-          <ListContainer>
-            <ListHeader>
-              <h1>Projects</h1>
+      <ListContainer>
+        <ListHeader>
+          <p className="recoleta">Projects</p>
+        </ListHeader>
 
-              <div className="role">
-                <p className="design"></p>
-                <p className="development"></p>
-              </div>
-            </ListHeader>
-
-            <List />
-          </ListContainer>
-        </div>
-      </div>
+        <List />
+      </ListContainer>
     </>
   );
 };
