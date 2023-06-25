@@ -10,7 +10,7 @@ const ListContents = styled.div`
       position: relative;
       cursor: pointer;
       padding: 10px 0;
-      border-bottom: 1px solid #999;
+      border-bottom: 1px solid #ccc;
     }
   }
 
@@ -18,6 +18,8 @@ const ListContents = styled.div`
     display: grid;
     grid-template-columns: 80px 1fr;
     pointer-events: none;
+    .date {
+    }
   }
   
   .content > div {
@@ -87,7 +89,7 @@ const List = () => {
         <ul>
           <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <div className="content">
-              <div>2023</div>
+              <div className="date">2023</div>
               <div><a href="cyworld.netlify.app">cyworld.com</a></div>
             </div>
             <div className="content-img">
@@ -99,7 +101,7 @@ const List = () => {
           <li>
             <div className="content">
               <div>2023</div>
-              <div><a href="lottie.netlify.app">national dog`s day</a></div>
+              <div><a href="https://lottie-animal-walking.netlify.app/">national dog`s day</a></div>
             </div>
             <div className="content-img">
               <div>
@@ -121,7 +123,7 @@ const List = () => {
           <li>
             <div className="content">
               <div>2022</div>
-              <div><a href="ufo.netlify.app">ufo quiz</a></div>
+              <div><a href="https://ufo-gsap.netlify.app/">ufo quiz</a></div>
             </div>
             <div className="content-img">
               <figure className="content-thumb">
