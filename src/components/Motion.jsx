@@ -207,7 +207,17 @@ const Motion = () => {
   }, [isMedium, isMobile, isTablet]);
 
  
+  const handleResize = () => {
+    const vh = window.innerHeight * 0.01;
+    wrapper.current.style.setProperty("--vh", `${vh}px`); 
+  };
   
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+  
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   
 
   return (

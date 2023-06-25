@@ -14,7 +14,7 @@ body { margin: 0; padding: 0; box-sizing: border-box; overflow: hidden; font-fam
 .super-container { padding: 0 20px; overflow-x: hidden; } 
 .wrap { width: 100%; margin: 0 auto; padding: 50px 0 0; } 
 
-.wrapper { background: var(--pink); height: calc(100vh - 200px);  border-radius: 20px; overflow: hidden; position: relative; padding: 20px; z-index: 66; } 
+.wrapper { background: var(--pink);  min-height: calc((var(--vh) * 100) - 200px);  border-radius: 20px; overflow: hidden; position: relative; padding: 20px; z-index: 66; } 
 .clone { --color:''; border-radius: 50%; position: absolute; z-index: 1; cursor: pointer;  color: var(--red); transition: all .6s  cubic-bezier(0.85, 0, 0.15, 1); pointer-events: none; } 
 .clone.shake{pointer-events: auto;}
 .clone span { display: inline-block; } 
@@ -37,4 +37,8 @@ svg path { fill: var(--red);}
     .overlay-inner div{
         font-size: 40px;
     }
+  }
+
+  @supports (-webkit-touch-callout: none) { 
+    html, body { height: -webkit-fill-available;}
   }
