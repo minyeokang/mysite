@@ -1,16 +1,19 @@
 import styled from "styled-components";
-import Header from "../components/Header";
 import List from "../components/List";
 
-const ListContainer = styled.div``;
+const ListContainer = styled.div`
+  overflow: hidden;
+`;
 const ListHeader = styled.div`
   margin-bottom: 100px;
+  @media(max-width:768px){
+    margin-bottom: 50px;
+  }
 `;
 
 const Projects = () => {
   return (
     <>
-    <Header />
       <div className="super-container">
         <div className="wrap">
           <ListContainer>

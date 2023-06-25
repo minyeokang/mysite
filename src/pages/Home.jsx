@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { motion, useAnimate } from "framer-motion";
@@ -23,9 +24,9 @@ const Home = () => {
     const top = motionElement.getBoundingClientRect().top + 20;
 
     const sequence = [
-      [overlay, { clipPath: `inset(${top}px ${left}px ${bottom}px ${left}px)`  }, { at: 0.8}],
+      [overlay, { clipPath: `inset(${top}px ${left}px 20px ${left}px)`  }, { at: 0.8}],
       [motionElement, { opacity: 1,  visibility: 'visible' }, { at: 0.7 }],
-      [overlay, { opacity: 0 }, { at: 2 }],
+      [overlay, { opacity: 0 }, { at: 0.9 }],
     ];
 
     gsap.fromTo(
@@ -50,7 +51,6 @@ const Home = () => {
   });
   return (
     <>
-    <Header />
     <div className="super-container">
     <div className="wrap">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}>

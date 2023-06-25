@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import profile from "../assets/test2.jpg";
-import Header from "../components/Header";
 
 const ContactContainer = styled.div`
   width: 100vw;
@@ -23,7 +22,6 @@ const ContactContainer = styled.div`
 const Contact = () => {
   return (
     <>
-    <Header/>
             <ContactContainer>
               <div className="make">
               <div className="left">

@@ -16,34 +16,12 @@ const ListContents = styled.div`
 
   .content {
     display: grid;
-    grid-template-columns: 10% 15% minmax(150px, 25%) 25% 25%;
+    grid-template-columns: 80px 1fr;
     pointer-events: none;
   }
   
   .content > div {
     padding: 10px 0;
-  }
-
-  .icon-wrap {
-    display: flex;
-    align-items: center;
-
-    div {
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  .icon1 svg path {
-    fill: #999;
-  }
-
-  .icon2 {
-    margin-left: -11px;
-    z-index: -1;
-    svg path {
-      fill: white;
-    }
   }
 
   .content-img {
@@ -109,63 +87,8 @@ const List = () => {
         <ul>
           <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <div className="content">
-              <div className="icon-wrap">
-                <div className="icon1">
-                  <svg
-                    viewBox="0 0 200 200"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0_116_153)">
-                      <path
-                        d="M100 0C103.395 53.7596 146.24 96.6052 200 100C146.24 103.395 103.395 146.24 100 200C96.6052 146.24 53.7596 103.395 0 100C53.7596 96.6052 96.6052 53.7596 100 0Z"
-                        fill="url(#paint0_linear_116_153)"
-                      />
-                    </g>
-                    <defs>
-                      <linearGradient
-                        id="paint0_linear_116_153"
-                        x1="100"
-                        y1="0"
-                        x2="100"
-                        y2="200"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stopColor="#DF99F7" />
-                        <stop offset="1" stopColor="#FFDBB0" />
-                      </linearGradient>
-                      <clipPath id="clip0_116_153">
-                        <rect width="200" height="200" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-                <div className="icon2">
-                  <svg
-                    viewBox="0 0 200 200"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0_116_153)">
-                      <path
-                        d="M100 0C103.395 53.7596 146.24 96.6052 200 100C146.24 103.395 103.395 146.24 100 200C96.6052 146.24 53.7596 103.395 0 100C53.7596 96.6052 96.6052 53.7596 100 0Z"
-                        fill="url(#paint0_linear_116_153)"
-                      />
-                    </g>
-                    <defs>
-                      <stop stopColor="#DF99F7" />
-                      <stop offset="1" stopColor="#FFDBB0" />
-                      <clipPath id="clip0_116_153">
-                        <rect width="200" height="200" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-              <div>date</div>
-              <div>url</div>
-              <div>role</div>
-              <div>date</div>
+              <div>2023</div>
+              <div><a href="cyworld.netlify.app">cyworld.com</a></div>
             </div>
             <div className="content-img">
               <figure className="content-thumb">
@@ -175,43 +98,8 @@ const List = () => {
           </li>
           <li>
             <div className="content">
-              <div className="icon-wrap">
-                <div className="icon1">
-                  <svg
-                    viewBox="0 0 200 200"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0_116_153)">
-                      <path
-                        d="M100 0C103.395 53.7596 146.24 96.6052 200 100C146.24 103.395 103.395 146.24 100 200C96.6052 146.24 53.7596 103.395 0 100C53.7596 96.6052 96.6052 53.7596 100 0Z"
-                        fill="url(#paint0_linear_116_153)"
-                      />
-                    </g>
-                    <defs>
-                      <linearGradient
-                        id="paint0_linear_116_153"
-                        x1="100"
-                        y1="0"
-                        x2="100"
-                        y2="200"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stopColor="#DF99F7" />
-                        <stop offset="1" stopColor="#FFDBB0" />
-                      </linearGradient>
-                      <clipPath id="clip0_116_153">
-                        <rect width="200" height="200" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-                <div className="icon2"></div>
-              </div>
-              <div>date</div>
-              <div>url</div>
-              <div>role</div>
-              <div>date</div>
+              <div>2023</div>
+              <div><a href="lottie.netlify.app">national dog`s day</a></div>
             </div>
             <div className="content-img">
               <div>
@@ -221,14 +109,19 @@ const List = () => {
           </li>
           <li>
             <div className="content">
-              <div className="icon-wrap">
-                <div className="icon1"></div>
-                <div className="icon2"></div>
-              </div>
-              <div>date</div>
-              <div>url</div>
-              <div>role</div>
-              <div>date</div>
+              <div>2022</div>
+              <div><a href="book.netlify.app">book review</a></div>
+            </div>
+            <div className="content-img">
+              <figure className="content-thumb">
+                <img src={miffy} alt="" />
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div className="content">
+              <div>2022</div>
+              <div><a href="ufo.netlify.app">ufo quiz</a></div>
             </div>
             <div className="content-img">
               <figure className="content-thumb">

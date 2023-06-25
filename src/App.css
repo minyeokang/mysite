@@ -12,7 +12,7 @@ button { background: transparent; border: 0; cursor: pointer; }
 body { margin: 0; padding: 0; box-sizing: border-box; overflow: hidden; font-family: adieu, sans-serif; font-size: 16px; line-height: 1; } 
 #root { width: 100vw; height: 100vh; } 
 .super-container { padding: 0 20px; overflow-x: hidden; } 
-.wrap { width: 100%; margin: 0 auto; padding: 100px 0 0; } 
+.wrap { width: 100%; margin: 0 auto; padding: 50px 0 0; } 
 
 .wrapper { background: var(--pink); height: calc(100vh - 200px);  border-radius: 20px; overflow: hidden; position: relative; padding: 20px; z-index: 66; } 
 .clone { --color:''; border-radius: 50%; position: absolute; z-index: 1; cursor: pointer;  color: var(--red); transition: all .6s  cubic-bezier(0.85, 0, 0.15, 1); pointer-events: none; } 
@@ -32,12 +32,7 @@ svg path { fill: var(--red);}
  100% { transform: translate3d(4px, -4px, 0) rotate(10deg); } 
  } 
 
- @supports (-webkit-touch-callout: none) { 
-    html, body { height: -webkit-fill-available;}
-    .wrapper{ min-height: 100vh; /* fallback */
-        min-height: calc(var(--vh) * 300); }
-  }
-
+ 
   @media(max-width: 540px){
     .overlay-inner div{
         font-size: 40px;
