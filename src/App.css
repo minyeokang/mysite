@@ -35,7 +35,7 @@ svg path { fill: var(--red);}
  @supports (-webkit-touch-callout: none) { 
     html, body { height: -webkit-fill-available;}
     .wrapper{ min-height: 100vh; /* fallback */
-        min-height: calc(var(--vh) * 100); }
+        min-height: calc(var(--vh) * 300); }
   }
 
   @media(max-width: 540px){
