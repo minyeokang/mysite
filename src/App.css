@@ -9,8 +9,8 @@ html { font-size: 6.25%; height: 100vh; overflow: hidden;}
 ol, ul { list-style: none; }
 a { text-decoration: none; color: inherit; }
 button { background: transparent; border: 0; cursor: pointer; }
-.recoleta{font-family: recoleta; font-size: 40px; }
-
+.recoleta{font-family: recoleta, sans-serif; font-size: 40px; }
+.reg-text{font-family: sans-serif;}
 :root { --pink: #F7D9D3; --blue: #5267AB; --yellow: #f3be22; --red: #ee4e2b; --green: #019563; --bg:'';--baige: #fdf6e1; --newBlue: #164993;  } 
 body { margin: 0; padding: 0; box-sizing: border-box; overflow: hidden; font-family: adieu, sans-serif; font-size: 16px; line-height: 1; } 
 #root { width: 100vw; height: 100vh; } 
@@ -34,6 +34,7 @@ svg path { fill: var(--red);}
 img {
   width: 100%; height: auto; display: block;
 }
+
 @keyframes shake { 
  0% { transform: translate3d(0, 0, 0) rotate(0deg); } 
  100% { transform: translate3d(4px, -4px, 0) rotate(10deg); } 

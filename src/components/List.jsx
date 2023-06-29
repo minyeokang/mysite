@@ -1,4 +1,7 @@
-import miffy from "../assets/react.svg";
+import catImg from "../assets/imgs/768x724_lottie.png";
+import ufoImg from "../assets/imgs/768x724_ufo.png";
+import cyImg from "../assets/imgs/768x433_cy.jpg";
+import bookImg from "../assets/imgs/768x521_book.png";
 import styled from "styled-components";
 const ListContents = styled.div`
   ul {
@@ -40,6 +43,7 @@ const ListContents = styled.div`
       width: 100%;
       height: auto;
       display: block;
+      pointer-events: none;
     }
   }
 `;
@@ -67,7 +71,7 @@ const List = () => {
     }
 
     thumb.style.opacity = "0";
-    listItem.pxoveEventListener("mousemove", handleMouseMove);
+    listItem.removeEventListener("mousemove", handleMouseMove);
   };
 
   const handleMouseEnter = (e) => {
@@ -87,49 +91,57 @@ const List = () => {
     <>
       <ListContents>
         <ul>
-          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <div className="content">
-              <div className="date">2023</div>
-              <div><a href="cyworld.netlify.app">cyworld.com</a></div>
-            </div>
-            <div className="content-img">
-              <figure className="content-thumb">
-                <img src={miffy} alt="" />
-              </figure>
-            </div>
-          </li>
-          <li>
-            <div className="content">
-              <div>2023</div>
-              <div><a href="https://lottie-animal-walking.netlify.app/">national dog`s day</a></div>
-            </div>
-            <div className="content-img">
-              <div>
-                <img src={miffy} alt="" />
+          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+            <a href="https://cy-world.netlify.app/" target="_blank" rel="noreferrer">
+              <div className="content">
+                <div className="date">2023</div>
+                <div>cyworld.com</div>
               </div>
-            </div>
+              <div className="content-img">
+                <figure className="content-thumb">
+                  <img src={cyImg} alt="" />
+                </figure>
+              </div>
+            </a>
           </li>
-          <li>
-            <div className="content">
-              <div>2022</div>
-              <div><a href="book.netlify.app">book review</a></div>
-            </div>
-            <div className="content-img">
-              <figure className="content-thumb">
-                <img src={miffy} alt="" />
-              </figure>
-            </div>
+          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <a href="https://lottie-animal-walking.netlify.app/" target="_blank" rel="noreferrer">
+              <div className="content">
+                <div>2023</div>
+                <div>national dog`s day</div>
+              </div>
+              <div className="content-img">
+                <div>
+                  <img src={catImg} alt="" />
+                </div>
+              </div>
+            </a>
           </li>
-          <li>
-            <div className="content">
-              <div>2022</div>
-              <div><a href="https://ufo-gsap.netlify.app/">ufo quiz</a></div>
-            </div>
-            <div className="content-img">
-              <figure className="content-thumb">
-                <img src={miffy} alt="" />
-              </figure>
-            </div>
+          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <a href="https://book-review-kakao.netlify.app/" target="_blank" rel="noreferrer">
+              <div className="content">
+                <div>2022</div>
+                <div>book review</div>
+              </div>
+              <div className="content-img">
+                <figure className="content-thumb">
+                  <img src={bookImg} alt="" />
+                </figure>
+              </div>
+            </a>
+          </li>
+          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <a href="https://ufo-gsap.netlify.app/" target="_blank" rel="noreferrer">
+              <div className="content">
+                <div>2022</div>
+                <div>ufo quiz</div>
+              </div>
+              <div className="content-img">
+                <figure className="content-thumb">
+                  <img src={ufoImg} alt="" />
+                </figure>
+              </div>
+            </a>
           </li>
         </ul>
       </ListContents>

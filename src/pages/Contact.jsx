@@ -1,31 +1,52 @@
 import styled from "styled-components";
-import profile from "../assets/profile.jpg";
-
+import profile from "../assets/imgs/profile.jpg";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
 const ContactContainer = styled.div`
   width: 100%;
   height: 100%;
   background: #000;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   color: var(--baige);
   .contact-wrap {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 50px;
-    height: 100%;
-    align-content: center;
+    grid-template-columns: minmax(280px, 500px) 280px;
+    column-gap: 100px;
     align-items: center;
+    padding: 0 20px;
+    @media (max-width: 768px){
+      column-gap: 20px;
+    }
+    @media (max-width: 540px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      max-width: 300px;
+      row-gap: 30px;
+    }
+  }
+  .left{
+    @media (max-width: 540px) {
+      text-align: center;
+    }
+    br {
+      display: none;
+    }
   }
   
-  p {
-    line-height: 1.3;
-  }
-  p.recoleta{margin-bottom: 30px; color: var(--green)}
+  p.recoleta{margin-bottom: 30px; color: var(--baige)}
 
   .clip-img {
     border-radius: 50%;
     overflow: hidden;
     display: inline-block;
     img {
-      max-width: 200px; 
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      @media (max-width: 768px){
+        max-width: 150px;
+      }
     }
   }
   
@@ -34,6 +55,8 @@ const ContactContainer = styled.div`
   }
   .right ul {
     margin-top: 20px;
+    opacity: 0.7;
+    font-size: 14px;
   }
   .right ul li {
     display: inline-block;
@@ -50,29 +73,30 @@ const ContactContainer = styled.div`
     background: #ccc;
     margin-right: 10px;
   }
+  .right ul li:last-of-type { padding-right: 0}
   .right ul li:last-of-type:after{
     display:none;
   }
-  .origin {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
+  
 `;
 
+
 const Contact = () => {
+  useEffect(()=>{console.log('test')},[])
   return (
     <>
+   
       <ContactContainer>
-        <div className="contact-wrap">
+      
+        <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, ease: 'easeIn' }} className="contact-wrap">
           <div className="left">
             <p className="recoleta">Welcome!</p>
-            <p>hello! welcome to my website</p>
-
-            <p>currently working at studio-jt as front-end junior developer</p>
-            <p>I am passionate about making...</p>
-            <p>I am specializing in...</p>
+            <p className="reg-text">
+            hello! welcome to my website<br/>
+            currently working at studio-jt as front-end junior developer<br />
+            I am passionate about making..
+            I am specializing in...
+            </p>
           </div>
 
           <div className="right">
@@ -85,13 +109,11 @@ const Contact = () => {
               <li>Email</li>
             </ul>
           </div>
-        </div>
-
-        {/* <div className="origin">
-          <p>Code by Minyeo</p>
-          <p>Most of the layout is inspired from selfaware.com </p>
-        </div> */}
+      </motion.div>
+      
       </ContactContainer>
+     
+            
     </>
   );
 };

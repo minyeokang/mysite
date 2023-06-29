@@ -12,10 +12,20 @@ const ListHeader = styled.div`
   p.recoleta{color:var(--newBlue);}
 `;
 
-const Projects = () => {
+const Work = () => {
   return (
     <>
       <ListContainer>
+        <ListHeader>
+          <p className="recoleta">Experience</p>
+        </ListHeader>
+
+        <div>
+          bio. make simple story about work but long enough for scroll Motion
+          i will also add some svg on the background flowing around 
+        </div>
+
+
         <ListHeader>
           <p className="recoleta">Projects</p>
         </ListHeader>
@@ -26,4 +36,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Work;

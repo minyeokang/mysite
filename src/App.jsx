@@ -6,7 +6,7 @@ import "./App.css";
 import { motion, useAnimate, stagger } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Projects from "./pages/Projects";
+import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import Header from "./components/Header";
 import './reset.css'
@@ -21,9 +21,9 @@ function App() {
     
     <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route path="/work" element={<Work />} />
         <Route path="/contact" element={<Contact />} />
-      </Routes>
+    </Routes>
      
     </>
   );
