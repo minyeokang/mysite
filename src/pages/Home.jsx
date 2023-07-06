@@ -63,6 +63,7 @@ const Home = () => {
   }, []);
   return (
     <>
+    <Header />
       <div className="super-container">
         <div className="wrap">
           <motion.div
