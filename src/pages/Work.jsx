@@ -131,20 +131,21 @@ const ListWrap = styled.div`
     }
   }
   
-  h3{
+  h3 {
     font-size: 18px;
     margin-bottom: 10px;
     color: var(--lgOrange);
   }
-  h3:not(:first-of-type){
+  h3:not(:first-of-type) {
     margin-top: 20px;
   }
 
-  p.reg-text{
-    a{
+  p.reg-text {
+    a {
       text-decoration: underline;
     }
-    font-size:18px;
+    font-size: 18px;
+    word-break: break-all;
   }
 `;
 
@@ -169,7 +170,7 @@ const Work = () => {
             >
 
               <h3 className="recoleta">Expertise in</h3>
-              <p className="reg-text">WordPress Development, Responsive Website Creation using HTML & CSS, and High-Quality Motion Work with JavaScript
+              <p className="reg-text">WordPress Development, Responsive Website Creation using HTML & CSS, and High-Quality Motion Work with JavaScript. What truly sets me apart is my proficiency in quickly adapting to new tools and frameworks. 
               </p>
 
               <h3 className="recoleta">Work Experience</h3>
