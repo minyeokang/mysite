@@ -26,7 +26,7 @@ const AccordionWrap = styled.ul`
     grid-template-columns: 1fr 50px;
     margin: 0 20px;
     @media (max-width: 540px) {
-      margin: 0 10px;
+      margin: 0 15px;
     }
   }
 
@@ -45,15 +45,15 @@ const AccordionWrap = styled.ul`
   .content-title {
     display: flex;
     align-items: center;
-    a{
+    a {
        flex-grow: 1;
         position:relative; 
         padding: 20px 20px 20px 30px;
         @media(max-width:540px){
-            padding: 10px 10px 10px 30px; 
+            padding: 10px 10px 10px 25px; 
         }
     }
-    a:before{
+    a:before {
         content:'';
         width: 24px;
         height: 24px;
@@ -63,8 +63,12 @@ const AccordionWrap = styled.ul`
         left:0;
         top:50%;
         transform: translateY(-50%);
+        @media(max-width:540px){
+          width: 18px;
+          height: 18px;
+        }
     }
-    span{
+    span {
         font-size: 14px;
         padding: 20px;
         color: var(--lgOrange);
@@ -72,7 +76,7 @@ const AccordionWrap = styled.ul`
         @media(max-width: 540px){display: none;}
     }
   }
-  .accordion-content.active button {transform: rotate(-180deg); }
+  .accordion-content.active button { transform: rotate(-180deg); }
 
   button {
     background: url(${toggleIcon}) no-repeat center center;
@@ -87,7 +91,7 @@ const AccordionWrap = styled.ul`
     word-break: break-word;
     padding: 0 30px 20px 50px;
     @media (max-width: 540px) {
-      padding: 0 30px 20px 40px;
+      padding: 0 20px 20px 20px;
     }
   }
 `;
