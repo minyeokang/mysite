@@ -174,13 +174,11 @@ const Work = () => {
               </p>
 
               <h3 className="recoleta">Work Experience</h3>
-              <p className="reg-text"> With one year of work experience as a junior front-end developer at <Link to={"https://studio-jt.co.kr/"} target="_blank" rel="noreferrer noopenner">Studio-JT</Link>, I had the opportunity to be part of a renowned web agency in South Korea, recognized for delivering high-quality websites with a strong emphasis on WordPress expertise. </p>
-              
-              <h3 className="recoleta">My roles</h3>
-              <p className="reg-text">Maintaining and creating new pages to meet customer needs. I worked with {""}
+              <p className="reg-text"> With one year of work experience as a junior front-end developer at <Link to={"https://studio-jt.co.kr/"} target="_blank" rel="noreferrer noopenner">Studio-JT</Link>, My role was Maintaining and creating new pages to meet customer needs. I worked with {""}
               <Link to={"https://www.cafe24.com/"} target="_blank" rel="noreferrer noopenner">Cafe24,</Link> <Link to={"https://richwood.net/"} target="_blank" rel="noreferrer noopenner">Richwood,</Link> <Link to={"https://dongil82.co.kr/"} target="_blank" rel="noreferrer noopenner">Dongil,</Link> <Link to={"https://itshanbul.com/"} target="_blank" rel="noreferrer noopenner">Hanbul,</Link> <Link to={"https://www.nasmedia.co.kr/"} target="_blank" rel="noreferrer noopenner">Nasmedia</Link> and more. Moreover, I actively contributed to the development of <Link to={"https://klaytn.foundation/"} target="_blank" rel="noreferrer noopenner">Klaytn.</Link> 
-              {""} Alongside my development skills, I wrote an aritcle about SEO for the company. A remarkable accomplishment was when my article on <Link to={"https://studio-jt.co.kr/%ec%8a%a4%ed%82%a4%eb%a7%88-%eb%a7%88%ed%81%ac%ec%97%85/"} target="_blank" rel="noreferrer noopenner">schema markup</Link> achieved a higher ranking on Google compared to the official Google document.</p>
-
+              {""} Alongside my development skills, I wrote an aritcle about <Link to={"https://studio-jt.co.kr/%ec%8a%a4%ed%82%a4%eb%a7%88-%eb%a7%88%ed%81%ac%ec%97%85/"} target="_blank" rel="noreferrer noopenner">schema markup</Link>  for the company. It ranked #2 on Google search which is higher than Google's official document. 
+              </p>
+              
               <h3 className="recoleta">By doing that..</h3>
               <p className="reg-text"> Working at a company that values cross-browser compatibility and pixel-perfect details has cultivated my meticulous approach towards my work. It has emphasized the significance of open communication with teammates, meeting deadlines, the importance of self-study, and staying updated with the latest advancements. Consequently, I am confident in my ability to transform my envisioned projects into reality. Below are examples of that. </p>
 
