@@ -97,6 +97,7 @@ const AccordionWrap = styled.ul`
 `;
 const Accordion = () => {
   const [items, setItems] = useState(websiteData);
+  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
 
   const toggleAccordion = (itemId) => {
     setItems((prevItems) =>
@@ -138,7 +139,10 @@ const Accordion = () => {
             <div className={`accordion-content ${item.isOpen ? "active" : ""}`}>
                 <div className="content-grid">
                     <div className="content-title">
-                      <Link to={item.url} target="_blank" rel="noreferrer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                      <Link to={item.url} target="_blank" rel="noreferrer" 
+                      onMouseEnter={isDesktop ? handleMouseEnter : undefined}
+                      onMouseLeave={isDesktop ? handleMouseLeave : undefined}
+                      >
                             <div>{item.title}</div>
                         
                             <div className="content-img">

@@ -9,7 +9,7 @@ const ContactWrap = styled.div`
     margin-bottom: 50px;
     color: var(--green);
     @media(max-width: 540px){
-      margin-top: 70px;
+      margin-top: 80px;
       margin-bottom: 25px;
     }
   }
